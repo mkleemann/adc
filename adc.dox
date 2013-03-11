@@ -1,0 +1,114 @@
+/**
+ * \page page_adc Analog/Digital Converter
+ *
+ * The Analag/Digital Converter (ADC) is used to get a value of brightness
+ * to use as input to dim the unit automatically.
+ *
+ * \section adc_setup_sec Setting up the ADC
+ *
+ * Configuring the ADC is done via the file adc_config.h. There are
+ * different possibilities to have the ADC values returned.
+ *
+ * \subsection adc_setup_sec_ref_voltage Reference Selection
+ *
+ * Internally the ADC modules uses the definition ADC_REF_SELECT to get
+ * the inforation about the reference voltage to be used, depending on
+ * the hardware environment.
+ *
+ * \a Example:
+ * \code
+ * #define ADC_REF_SELECT        (1 << REFS0)
+ * \endcode
+ *
+ * The bits \c REFS0 and \c REFS1 are defined with the AVR toolchain and
+ * simply used here.
+ *
+ * \sa ADC_REF_SELECT
+ * \sa REFS0, REFS1
+ *
+ *
+ * \subsection adc_setup_sec_input_channel Input Channel Selection
+ *
+ * To simplify matters, a single ended input approach is used here. Only
+ * one input channel is used so far, so there is only one to choose from.
+ *
+ * \a Example:
+ * \code
+ * #define ADC_INPUT_CHANNEL     0
+ * \endcode
+ *
+ * \sa ADC_INPUT_CHANNEL
+ *
+ *
+ * \subsection adc_setup_sec_input_pin Input Pin Selection
+ *
+ * Depending on the hardware (AVR) you use, the input pin is located on
+ * different ports. The input pin selection is used to define the right
+ * hardware pin for the ADC input channel.
+ *
+ * \a Example:
+ * \code
+ * #define ADC_INPUT_PIN         C,ADC_INPUT_CHANNEL
+ * \endcode
+ *
+ * \sa ADC_INPUT_PIN
+ * \sa ADC_INPUT_CHANNEL
+ *
+ *
+ * \subsection adc_setup_sec_prescaler ADC Prescaler
+ *
+ * For sampling the analog input, a frequency is set up using a prescaler
+ * for the oscillator frequency on the AVR. Fosc is here divided by the
+ * given factor to get th evalue of CLKadc. To setup the internally used
+ * definition ADC_PRESCALER, the toolchain provided bits \c ADPS<2:0> are
+ * used.
+ *
+ * \a Example:
+ * \code
+ * #define ADC_PRESCALER         (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0)
+ * \endcode
+ *
+ * \sa ADC_PRESCALER
+ * \sa ADPS2, ADPS1, ADPS0
+ *
+ *
+ * \subsection adc_setup_sec_8bit_res 8-bit Resolution
+ *
+ * It is possible to use a artificial 8-bit resolution instead of the
+ * 10-bit the AVR provides. Defining the option ADC_8BIT_RESOLUTION,
+ * only the upper 8 bit of the sampled value are given in return. The lowest
+ * 2 bit are discarded, so the resolution returned is not as fine as the
+ * one sampled. For some use cases this is ok, though.
+ *
+ * \a Example:
+ * \code
+ * #define ADC_8BIT_RESOLUTION
+ * \endcode
+ *
+ * \sa ADC_8BIT_RESOLUTION
+ *
+ *
+ * \subsection adc_setup_sec_left_aligned Left Aligned Value
+ *
+ * It is possible to have the 10-bit sample value left aligned in the
+ * 16-bit return value. The AVR provides this by using the ADLAR bit in
+ * the ADMUX setup. Both are defined within the toolchain and used
+ * internally, if the option ADC_LEFT_ALIGNED is set.
+ *
+ * \a Example:
+ * \code
+ * #define ADC_LEFT_ALIGNED
+ * \endcode
+ *
+ * \sa ADC_LEFT_ALIGNED
+ * \sa ADMUX, ADLAR
+ *
+ *
+ *
+ *
+ *
+ * \section adc_use_sec Use The ADC Module
+ *
+ * \todo Describe usage of ADC module here!
+ *
+ */
