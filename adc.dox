@@ -104,11 +104,35 @@
  * \sa ADMUX, ADLAR
  *
  *
- *
- *
- *
  * \section adc_use_sec Use The ADC Module
  *
- * \todo Describe usage of ADC module here!
- *
+ * \code
+ * #include "modules/adc/adc.h"
+ * 
+ * int main(void)
+ * {
+ *    uint16_t adcValue = 0;
+ *    
+ *    // initialize ADC
+ *    adc_init();
+ * 
+ *    // enable ADC for use
+ *    adc_enable();
+ *    
+ *    // do something here
+ * 
+ *    // get ADC value
+ *    adcValue = adc_get();
+ * 
+ *    // do something with ADC value here
+ * 
+ *    // disable ADC, e.g. to save power when put to sleep
+ *    adc_disable();
+ * 
+ *    return 0;
+ * }
+ * /endcode
  */
+
+
+

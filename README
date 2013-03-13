@@ -1,0 +1,37 @@
+AVR module: Analog/Digital Converter
+================================================================================
+
+A submodule used in other projects. Currently there are no make files available
+so it needs to be included within the buildtree of the host project.
+
+Environment:
+------------
+
+<project path>
+:
+|
++- config
+|  |
+|  +- adc_config.h
+|
++- adc
+|  |
+|  +- <submodule sources>
+|
++- util
+   |
+   +- <submodule util files>
+
+Use the following git commands to get the submodule:
+
+# to get the submodule
+git submodule add git@github.com:mkleemann/adc.git <path/to/adc/module>
+# commit the submodule to your repository
+git commit
+
+# update your submodule, when needs be
+git submodule update
+
+Have fun!
+
+M.
