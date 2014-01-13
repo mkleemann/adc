@@ -21,7 +21,7 @@
 #ifndef ADC_H_
 #define ADC_H_
 
-#include "../config/adc_config.h"
+#include "config/adc_config.h"
 
 /**
  * @brief initializes the ADC
