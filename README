@@ -2,7 +2,7 @@ AVR module: Analog/Digital Converter
 ================================================================================
 
 A submodule used in other projects. Currently cmake is used to build a library
-of the adc module. The path structure within the project should be as follows.
+of the module. The path structure within the project should be as follows.
 The includes are looked for in the subdirectory "config" and "util" at the same
 level as the adc module.
 
